@@ -1,4 +1,4 @@
-# CSES Problem Set Solutions
+## CSES Problem Set Solutions
 
 This repository contains my accepted (AC) solutions to problems from the [CSES problem set](https://cses.fi/problemset/).
 
