@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-const int N = 500+1;
+const int N = 1500+1;
 vector<int> adj[N+1];
 int capacity[N+1][N+1];
  
@@ -40,11 +40,6 @@ int max_flow(int s, int d, int n) {
     }
     return mx_flow;
 }
-bool visited[N+1];
-void dfs(int u) {
-    visited[u] = true;
-    for(auto v : adj[u])if(!visited[v] && capacity[u][v])dfs(v);
-}
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
@@ -52,27 +47,35 @@ int main() {
     tt = 1;
     // cin >> tt;
     while(tt--) {
-        int n, m;
-        cin >> n >> m;
-        for(int i = 0; i < m; i++) {
+        int n, m, k;
+        cin >> n >> m >> k;
+        for(int i = 1; i <= n; i++) {
+            adj[0].push_back(i);
+            adj[i].push_back(0);
+            capacity[0][i] = 1;
+        }
+        for(int i = n+1; i <= n+m; i++) {
+            adj[n+m+1].push_back(i);
+            adj[i].push_back(n+m+1);
+            capacity[i][n+m+1] = 1;
+        }
+        for(int i = 0; i < k; i++) {
             int u, v;
             cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-            capacity[u][v] += 1;
-            capacity[v][u] += 1;
+            if(capacity[u][v + n]) continue;
+            adj[u].push_back(v+n);
+            adj[v+n].push_back(u);
+            capacity[u][v+n] = 1;
         }
-        cout << max_flow(1, n, n) << "\n";
-        dfs(1);
+        cout << max_flow(0, n+m+1, n+m+1) << "\n";
         for(int u = 1; u <= n; u++) {
-            if(visited[u]) {
-                for(auto v : adj[u]) {
-                    if(!visited[v]) {
-                        cout << u << " " << v << "\n";
-                    }
+            for(auto v : adj[u]) {
+                if(v != 0 && !capacity[u][v]) {
+                    cout << u << " " << v - n << "\n";
                 }
             }
         }
     }
     return 0;
 }
+/*Max-Flow*/
