@@ -1,3 +1,10 @@
+/*
+Greedy method are used here
+Can be solved using Hopcroft–Karp algorithm
+https://en.wikipedia.org/wiki/Hopcroft–Karp_algorithm
+implementation: https://zobayer.blogspot.com/2010/05/maximum-matching.html
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 2e5 + 1;
@@ -33,7 +40,3 @@ int main() {
     }
     return 0;
 }
-// Greedy method are used here
-// Can be solved using Hopcroft–Karp algorithm
-// https://en.wikipedia.org/wiki/Hopcroft–Karp_algorithm
-// implementation: https://zobayer.blogspot.com/2010/05/maximum-matching.html
