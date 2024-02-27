@@ -5,9 +5,9 @@ Resource: https://www.youtube.com/watch?v=oib-XsjFa-M
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 2e5 + 1;
-const int LOG = 18; //LOG = ceil(log2(N))
+const int LOG = 18; // LOG = ceil(log2(N))
 vector<int> adj[N+1];
-int up[N+1][LOG];
+int up[N+1][LOG]; // up[v][j] is the 2^j-th Anchestor of node v
  
 void ancestor(int u) {
     for(auto v : adj[u]) {

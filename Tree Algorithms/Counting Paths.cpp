@@ -1,17 +1,18 @@
 /*
-Idea: Lowest Common Ancestor using Binary Lifting
+Idea: Lowest Common Ancestor using Binary Lifting + Prefix
 Resource: https://www.youtube.com/watch?v=dOAxrhAUIhA
 */
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 2e5 + 1;
-const int LOG = 18; // LOG = ceil(log2(N))
+const int LOG = 18;
 vector<int> adj[N+1];
-int up[N+1][LOG], depth[N+1]; // up[v][j] is the 2^j-th Anchestor of node v
+int up[N+1][LOG], depth[N+1], prefix[N+1], parent[N+1];
  
 void ancestor(int u, int p) {
     for(auto v : adj[u]) {
         if(v == p)continue;
+        parent[v] = u;
         depth[v] = depth[u] + 1;
         up[v][0] = u;
         for(int j = 1; j < LOG; j++)up[v][j] = up[up[v][j-1]][j-1];
@@ -36,6 +37,13 @@ int get_lca(int a, int b) {
     }
     return up[a][0];
 }
+void solve(int node, int p) {
+    for(auto v : adj[node]) {
+        if(v == p)continue;
+        solve(v, node);
+        prefix[node]+=prefix[v];
+    }
+}
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
@@ -51,13 +59,17 @@ int main() {
             adj[u].push_back(v);
             adj[v].push_back(u);
         }
+        parent[1] = 0; 
         ancestor(1, -1);
         while(q--) {
             int a, b;
             cin >> a >> b;
             int lca = get_lca(a, b);
-            cout << depth[a] + depth[b] - 2*depth[lca] << "\n";
+            prefix[a]++, prefix[b]++;
+            prefix[lca]--, prefix[parent[lca]]--;
         }
+        solve(1, -1);
+        for(int i = 1; i <= n; i++)cout << prefix[i] << " ";
     }
     return 0;
 }

@@ -6,9 +6,9 @@ More Problem: https://www.spoj.com/problems/LCASQ/
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 2e5 + 1;
-const int LOG = 18; //LOG = ceil(log2(N))
-vector<int> adj[N+5];
-int up[N+5][LOG], depth[N+5];
+const int LOG = 18; // LOG = ceil(log2(N))
+vector<int> adj[N+1];
+int up[N+5][LOG], depth[N+5]; // up[v][j] is the 2^j-th Anchestor of node v
  
 void ancestor(int u) {
     for(auto v : adj[u]) {
