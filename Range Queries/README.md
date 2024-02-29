@@ -1,7 +1,7 @@
 # Segment tree Template
 - ***0-based indexing***
 ## Static Update
-```
+```C++
 struct Segtree {
     // 0 base indexing
     int size;
@@ -51,7 +51,7 @@ struct Segtree {
 } st;
 ```
 ## Dynamic Update
-```
+```C++
 struct Segtree {
     // 0 base indexing
     int size;
