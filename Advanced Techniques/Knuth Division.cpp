@@ -1,6 +1,6 @@
 /*
 Problem Name: Knuth Division
-Problem Link: https://cses.fi/problemset/task/1074/
+Problem Link: https://cses.fi/problemset/task/2088/
 Idea:
 Complexity:
 Resource:

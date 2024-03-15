@@ -1,6 +1,6 @@
 /*
-Name: Sum of Three Values
-Link: https://cses.fi/problemset/task/1642/
+Problem Name: Sum of Three Values
+Problem Link: https://cses.fi/problemset/task/1641/
 Idea:
 Complexity:
 Resource:

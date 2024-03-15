@@ -1,6 +1,6 @@
 /*
-Name: Movie Festival II
-Link: https://cses.fi/problemset/task/1666/
+Problem Name: Movie Festival II
+Problem Link: https://cses.fi/problemset/task/1632/
 Idea:
 Complexity:
 Resource:

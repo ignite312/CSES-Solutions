@@ -1,6 +1,6 @@
 /*
-Name: Room Allocation
-Link: https://cses.fi/problemset/task/1164/
+Problem Name: Room Allocation
+Problem Link: https://cses.fi/problemset/task/1164/
 Idea:
 Complexity:
 Resource:

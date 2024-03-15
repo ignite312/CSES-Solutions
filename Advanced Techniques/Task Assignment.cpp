@@ -1,6 +1,6 @@
 /*
 Problem Name: Task Assignment
-Problem Link: https://cses.fi/problemset/task/1723/
+Problem Link: https://cses.fi/problemset/task/2129/
 Idea:
 Complexity:
 Resource:

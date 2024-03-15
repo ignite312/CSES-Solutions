@@ -1,6 +1,6 @@
 /*
 Problem Name: Creating Strings II
-Problem Link: https://cses.fi/problemset/task/1083/
+Problem Link: https://cses.fi/problemset/task/1715/
 Idea:
 Complexity:
 Resource:

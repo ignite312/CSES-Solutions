@@ -1,6 +1,6 @@
 /*
-Name: Nested Ranges Count
-Link: https://cses.fi/problemset/task/2169/
+Problem Name: Nested Ranges Count
+Problem Link: https://cses.fi/problemset/task/2169/
 Idea:
 Complexity:
 Resource:
