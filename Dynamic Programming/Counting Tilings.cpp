@@ -15,7 +15,6 @@ void generateNextMasks(int curr_mask, int i, int mask, vector<int> &next_masks) 
         next_masks.push_back(mask);
         return;
     }
-
     if(curr_mask & (1 << i))
         generateNextMasks(curr_mask, i+1, mask, next_masks);
     if(!(curr_mask & (1 << i)))
