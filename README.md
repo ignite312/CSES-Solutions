@@ -3,7 +3,7 @@
 This repository contains my accepted (AC) solutions to problems from the [CSES problem set](https://cses.fi/problemset/).
 
 ## Table of Content
-- [Complet Dynamic Programming](https://github.com/ignite312/CSES-Solutions/tree/main/Dynamic%20Programming)
+- [Complete Dynamic Programming](https://github.com/ignite312/CSES-Solutions/tree/main/Dynamic%20Programming)
 - [Complete Tree Algorithms](https://github.com/ignite312/CSES-Solutions/tree/main/Tree%20Algorithms)
 
 ## Resources
