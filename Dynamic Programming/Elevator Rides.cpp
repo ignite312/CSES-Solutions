@@ -1,6 +1,9 @@
 /*
-Problem: https://cses.fi/problemset/task/1653/
+Problem Name: Elevator Rides
+Problem Link: https://cses.fi/problemset/task/1653/
+
 DP Category: Bitmask DP
+Time Complexity: 
 Resource: https://cses.fi/book/book.pdf (Page 103-)
 */
 #include<bits/stdc++.h>

@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1636
+Problem Name: Coin Combinations II
+Problem Link: https://cses.fi/problemset/task/1636
+
 DP Category:
 Time Complexity:
-
 Resource:
+
 dp[i] = Number of distinct ordered ways ways to make sum i;
 */
 #include <bits/stdc++.h>

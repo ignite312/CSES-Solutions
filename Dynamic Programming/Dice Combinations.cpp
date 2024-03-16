@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1633/
+Problem Name: Dice Combinations
+Problem Link: https://cses.fi/problemset/task/1633/
+
 DP Category:
 Time Complexity:
-
 Resource:
+
 dp[i] = Number of ways to make sum i;
 */
 #include <bits/stdc++.h>

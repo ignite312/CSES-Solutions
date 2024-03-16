@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1093/
+Problem NameL Two Sets II
+Problem Link: https://cses.fi/problemset/task/1093/
+
 DP Category: Knapsack
 Time Complexity: O(N^3)
-
 Resource:
+
 # Here dp[i][x] = number of ways to make sum x using subsets of the numbers 1 to i
 */
 #include <bits/stdc++.h>

@@ -1,6 +1,9 @@
 /*
-Problem: https://cses.fi/problemset/task/2181
+Problem Name: Counting Tillings
+Problem Link: https://cses.fi/problemset/task/2181
+
 DP Category: Bitmask DP
+Time Complexity: 
 Resource: 
 */
 #include<bits/stdc++.h>

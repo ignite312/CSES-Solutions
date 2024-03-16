@@ -1,9 +1,12 @@
 /*
-Problem: https://cses.fi/problemset/task/1140/
+Problem Name: Projects
+Problem Link: https://cses.fi/problemset/task/1140/
+
 DP Category:
+Time Complexity: 
 Resource:
 
-# Here Dp[i] = maximum amount of money we can earn before the day i
+Here Dp[i] = maximum amount of money we can earn before the day i
 */
 #include <bits/stdc++.h>
 using namespace std;

@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1097
+Problem Name: Removal Game
+Problem Link: https://cses.fi/problemset/task/1097
+
 DP Category:
 Time Complexity: O(N^2)
-
 Resource:
+
 # Here dp[l][r] =  score_player1 - score_player2. That means Score difference between player1 and player2 if the game played in the interval l to r.
 and the player1 start the game.
 # Here dp[l][r] =  score_player2 - score_player1. That means Score difference between player2 and player1 if the game played in the interval l to r.

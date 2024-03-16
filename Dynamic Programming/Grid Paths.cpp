@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1638
+Problem Name: Grid Paths
+Problem Link: https://cses.fi/problemset/task/1638
+
 DP Category:
 Time Complexity:
-
 Resource:
+
 dp[i][j] = Number of ways to reach (i, j)
 */
 #include <bits/stdc++.h>

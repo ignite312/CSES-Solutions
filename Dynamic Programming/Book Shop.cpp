@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1158/
+Problem Name: Book Shop
+Problem Link: https://cses.fi/problemset/task/1158/
+
 DP Category: 0-1 Knapsack
 Time Complexity:
-
 Resource:
+
 Here dp[i][j] = maximum number of pages you can buy among the first 1 to i index and  at price j
 */
 #include <bits/stdc++.h>

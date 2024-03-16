@@ -1,6 +1,9 @@
 /*
-Problem: https://cses.fi/problemset/task/1145/
+Problem Name: Increasing Subsequence
+Problem Link: https://cses.fi/problemset/task/1145/
+
 DP Category: LIS
+Time Complexity: O(Nlog(N))
 Resource: https://cp-algorithms.com/sequences/longest_increasing_subsequence.html
 */
 #include <bits/stdc++.h>

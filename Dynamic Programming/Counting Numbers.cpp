@@ -1,7 +1,10 @@
 /*
-Problem: https://cses.fi/problemset/task/2220
+Problem Name: Counting Numbers
+Problem Link: https://cses.fi/problemset/task/2220
+
 DP Category: Digit DP
-Resource: 
+Time Complexity: 
+Resource:
 */
 #include<bits/stdc++.h>
 using namespace std;

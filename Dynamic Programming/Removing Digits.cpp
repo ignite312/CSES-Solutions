@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1637
+Problem Name: Removing Digit
+Problem Link: https://cses.fi/problemset/task/1637
+
 DP Category:
 Time Complexity:
-
 Resource:
+
 dp[x] = Number of steps are required to make the number x;
 */
 #include <bits/stdc++.h>

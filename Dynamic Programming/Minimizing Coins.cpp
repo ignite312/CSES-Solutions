@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1634
+Problem NameL Minimizing Coins
+Problem Link: https://cses.fi/problemset/task/1634
+
 DP Category:
 Time Complexity:
-
 Resource:
+
 dp[i] = minimum number of coins needed to make sum i
 */
 #include <bits/stdc++.h>

@@ -1,9 +1,11 @@
 /*
-Problem: https://cses.fi/problemset/task/1635
+Problem Name: Coin Combinations
+Problem Link: https://cses.fi/problemset/task/1635
+
 DP Category:
 Time Complexity:
-
 Resource:
+
 dp[i] = Number of distinct ways to make sum i;
 */
 #include <bits/stdc++.h>
