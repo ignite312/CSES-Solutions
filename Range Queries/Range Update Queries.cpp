@@ -1,6 +1,9 @@
 /*
-Problem: https://cses.fi/problemset/task/1651/
+Problem Name: Range Update Queries
+Problem Link: https://cses.fi/problemset/task/1651/
 Idea: Segment Tree With Lazy Propagation
+Complexity: 
+Resource: 
 */
 #include<bits/stdc++.h>
 using namespace std;

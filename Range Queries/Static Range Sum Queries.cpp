@@ -1,6 +1,9 @@
 /*
-Problem: https://cses.fi/problemset/task/1646/
+Problem Name: Static Range Sum Queries
+Problem Link: https://cses.fi/problemset/task/1646/
 Idea: Prefix Sum
+Complexity: 
+Resource: 
 */
 #include <bits/stdc++.h>
 using namespace std;

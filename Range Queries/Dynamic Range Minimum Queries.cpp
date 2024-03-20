@@ -1,6 +1,9 @@
 /*
-Problem: https://cses.fi/problemset/task/1649/
+Problem Name: Dynamic Range Minimum Queries
+Problem Link: https://cses.fi/problemset/task/1649/
 Idea: Segment Tree
+Complexity: 
+Resource: 
 */
 #include <bits/stdc++.h>
 using namespace std;
