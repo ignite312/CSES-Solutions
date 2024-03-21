@@ -19,7 +19,7 @@ struct Segtree {
     vector<Node> tree;
     vector<int> _nodes;
  
-    void merge(Node x, Node &y, Node &z) {
+    void merge(Node &x, Node &y, Node &z) {
         vector<ll> l, r;
         l = x.v, r = y.v;
         int lst = l.back();

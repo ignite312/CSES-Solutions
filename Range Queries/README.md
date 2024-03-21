@@ -121,7 +121,7 @@ struct Segtree {
 } st;
 ```
 
-## Binay Index Tree(1D) (Fenwick tree)
+## Binary Indexed Tree(1D) (Fenwick tree)
 ```c++
 struct FenwickTree {
     // 0 base indexing
@@ -152,7 +152,7 @@ struct FenwickTree {
 };
 ```
 
-## Binay Index Tree(2D) (Fenwick tree)
+## Binary Indexed Tree(2D) (Fenwick tree)
 ```c++
 struct FenwickTree2D {
     // 0 base indexing
