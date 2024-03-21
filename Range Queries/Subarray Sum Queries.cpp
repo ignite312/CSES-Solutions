@@ -18,8 +18,8 @@ struct Segtree {
     Node merge(Node &x, Node &y) {
         Node z = {0, 0, 0, 0};
         z[0] = max(x[2] + y[1], max(x[0], y[0])); // z[0] = maximum subarray sum of 2 merged node
-        z[1] = max(x[1], x[3] + y[1]); // z[0] = maximum prefix sum of 2 merged node
-        z[2] = max(y[2], y[3] + x[2]); // z[1] = maximum suffix sum of 2 merged node
+        z[1] = max(x[1], x[3] + y[1]); // z[1] = maximum prefix sum of 2 merged node
+        z[2] = max(y[2], y[3] + x[2]); // z[2] = maximum suffix sum of 2 merged node
         z[3] = x[3] + y[3]; // z[3] = total sum in 2 merged node
         return z;
     }
@@ -81,4 +81,5 @@ int main() {
             cout << st.query() << "\n";
         }
     }
+    return 0;
 }
