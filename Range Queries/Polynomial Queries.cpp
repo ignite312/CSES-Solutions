@@ -15,8 +15,8 @@ struct Segtree {
     int n;
     vector<ll> tree;
     vector<Node> lazy;
-    // lazy[0] = starting number of an arithmetic series
-    // lazy[1] = diiference between 2 number in that arithmetic series
+    // lazy[0] = starting number of an arithmetic series in a segment
+    // lazy[1] = diiference between 2 number in that arithmetic series segment
  
     ll merge(ll x, ll y) {
         return x + y;
