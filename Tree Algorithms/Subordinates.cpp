@@ -1,5 +1,6 @@
 /*
-Subtree Related
+Idea: Subtree
+Related Problem : https://codeforces.com/contest/1946/problem/C
 */
 
 #include<bits/stdc++.h>

@@ -2,7 +2,6 @@
 Flattening Tree Using Segment Tree
 Segment tree Resource: https://github.com/ignite312/CpStuff/tree/main/SegmentTree
 */
-
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
