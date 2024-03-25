@@ -1,5 +1,5 @@
 # Segment tree Template
-- ***0-based indexing***
+- 0-based indexing
 ## Static Update
 ```C++
 struct Segtree {

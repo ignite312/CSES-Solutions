@@ -1,88 +1,96 @@
 /*
 Problem Name: Distinct Values Queries
 Problem Link: https://cses.fi/problemset/task/1734/
-Idea: MO's Algorithm
-Complexity:O((N+Q)sqrt(N))
-Resource: https://cp-algorithms.com/data_structures/sqrt_decomposition.html
+Idea: Segment tree
+Complexity:
+Resource:
 */
 #include<bits/stdc++.h>
 using namespace std;
-const int N = 2e5 + 5;
-int arr[N+5], freq[N+5], distinct;
-const int rootN = 555;
  
-void add(int x) {
-    if(!freq[x]) distinct++;
-    freq[x]++;
-}
-void remove(int x) {
-    freq[x]--;
-    if(!freq[x]) distinct--;
-}
-void adjust(int &curr_l, int &curr_r, int L, int R) {
-    while(curr_l > L) {
-        curr_l--;
-        add(arr[curr_l]);
-    }
-    while(curr_r < R) {
-        curr_r++;
-        add(arr[curr_r]);
-    }
-    while(curr_l < L) {
-        remove(arr[curr_l]);
-        curr_l++;
-    }
-    while(curr_r > R) {
-        remove(arr[curr_r]);
-        curr_r--;
-    }
-}
-
-void solve(vector<tuple<int, int, int>> &queries) {
-    sort(queries.begin(), queries.end(), [&](const tuple<int, int, int>& a, const tuple<int, int, int>& b) {
-        int blockA = get<0>(a) / rootN;
-        int blockB = get<0>(b) / rootN;
-        if (blockA != blockB)
-            return blockA < blockB;
-        return get<1>(a) < get<1>(b);
-    });
+struct Segtree {
+    // 0 base indexing
+    int n;
+    vector<int> tree;
  
-    auto[L, R, id] = queries[0];
-    int curr_l = L, curr_r = L;
-    distinct = 1;
-    freq[arr[curr_l]]++;
-    vector<int> ans(queries.size());
-    for(auto [L, R, id] : queries) {
-        adjust(curr_l, curr_r, L, R);
-        ans[id] = distinct;
+    int merge(int x, int y) {
+        return x + y;
     }
-    for(auto ele : ans) cout << ele << "\n";
-}
+    void build(vector<int> &a, int node, int l, int r) {
+        if(l == r) {
+            tree[node] = a[l];
+            return;
+        }
+        int mid = l + ((r - l) >> 1);
+        build(a, (node << 1)+1, l, mid);
+        build(a, (node << 1)+2, mid+1, r);
+        tree[node] = merge(tree[(node << 1)+1], tree[(node << 1)+2]);
+    }
+    void update(int i, int value, int node, int l, int r) {
+        if(l == i && r == i) {
+            tree[node] += value;
+            return;
+        }
+        int mid = l + ((r-l) >> 1);
+        if(i <= mid)update(i, value, (node << 1)+1, l, mid);
+        else update(i, value, (node << 1)+2, mid+1, r);
+        tree[node] = merge(tree[(node << 1)+1], tree[(node << 1)+2]);
+    }
+    void update(int i, int value) {
+        update(i, value, 0, 0, n-1);
+    }
+    int query(int i, int j, int node, int l, int r) {
+        if(l > j || r < i) return 0;
+        if(l >= i && r <= j)return tree[node];
+        int mid = l + ((r - l) >> 1);
+        return merge(query(i, j, (node << 1)+1, l, mid), query(i, j, (node << 1)+2, mid+1, r));
+    }
+    int query(int i, int j) {
+        return query(i, j, 0, 0, n-1);
+    }
+    void init(vector<int> &a, int _n) {
+        n = _n;
+        int size = 1;
+        while(size < n) size = size << 1;
+        tree.resize((size << 1)-1);
+        build(a, 0, 0, n-1);
+    }
+} st;
  
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     int tt;
     tt = 1;
+    // cin >> tt;
     while(tt--) {
         int n, q;
         cin >> n >> q;
-        map<int, int> compress;
-        int current = 1;
+        vector<int> arr(n+1);
         for(int i = 1; i <= n; i++) {
             cin >> arr[i];
-            if(compress[arr[i]]) arr[i] = compress[arr[i]];
-            else {
-                compress[arr[i]] = current++;
-                arr[i] = compress[arr[i]];
-            }
         }
-        vector<tuple<int, int, int>> queries;
-        for(int i = 0; i < q; i++) {
+        map<int, int> last_seen;
+        vector<vector<pair<int, int>>> queries(n+1);
+        vector<int> ans(q+1), v(n, 0);
+        for(int i = 1; i <= q; i++) {
             int l, r;
             cin >> l >> r;
-            queries.emplace_back(l, r, i);
+            queries[r].push_back({l, i});
         }
-        solve(queries);
+        st.init(v, n);
+        for(int i = 1; i <= n; i++) {
+            int now = arr[i];
+            if(last_seen[arr[i]]) {
+                st.update(last_seen[now]-1, -1);
+            }
+            st.update(i-1, 1);
+            last_seen[now] = i;
+            for(auto seg : queries[i]) {
+                ans[seg.second] = st.query(seg.first-1, i-1);
+            }
+        } 
+        for(int i = 1; i <= q; i++) {cout << ans[i] << "\n";}
     }
+    return 0;
 }
