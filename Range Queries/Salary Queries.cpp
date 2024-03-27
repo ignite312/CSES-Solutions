@@ -1,8 +1,8 @@
 /*
 Problem Name: Salary Queries
 Problem Link: https://cses.fi/problemset/task/1144/
-Idea:
-Complexity:
+Idea: Segment tree with iterative approach to reduce complexity
+Complexity: 
 Resource:
 */
 #include <bits/stdc++.h>
