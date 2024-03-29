@@ -86,20 +86,20 @@ bool LineSegmentIntersection(P p1, P p2, P p3, P p4) {
 }
 
 // here return value is area*2
-ftype PolygonArea(vector<P> &Points, int n) {
+ftype PolygonArea(vector<P> &polygon, int n) {
     ll area = 0;
     for(int i = 0; i < n; i++) {
         int j = (i+1) % n;
-        area+=cross(Points[i], Points[j]);
+        area+=cross(polygon[i], polygon[j]);
     }
     return abs(area);
 }
 
-string PointInPolygon(vector<P> &points, int n, P &p) {
+string PointInPolygon(vector<P> &polygon, int n, P &p) {
     int cnt = 0;
     for(int i = 0; i < n; i++) {
         int j = (i+1) % n;
-        if(LineSegmentIntersection(points[i], points[j], p, p)) {
+        if(LineSegmentIntersection(polygon[i], polygon[j], p, p)) {
             return "BOUNDARY";
         }
         /*
@@ -107,8 +107,8 @@ string PointInPolygon(vector<P> &points, int n, P &p) {
         Check if a line from the polygon is totally on the left or right side of the infinite line and makes a positive cross product or positive triangle.
         Here, "right" means to the right or equal.
         */
-        if((points[i].x >= p.x && points[j].x < p.x && cross(points[i]-p, points[j]-p) > 0) ||
-           (points[i].x < p.x && points[j].x >= p.x && cross(points[j]-p, points[i]-p) > 0))
+        if((polygon[i].x >= p.x && polygon[j].x < p.x && cross(polygon[i]-p, polygon[j]-p) > 0) ||
+           (polygon[i].x < p.x && polygon[j].x >= p.x && cross(polygon[j]-p, polygon[i]-p) > 0))
             cnt++;
     }
     if(cnt & 1)return "INSIDE";
