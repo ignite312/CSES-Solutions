@@ -45,6 +45,10 @@ struct P {
     P operator-(const P &t) const {return P(*this) -= t;}
     P operator*(ftype t) const {return P(*this) *= t;}
     P operator/(ftype t) const {return P(*this) /= t;}
+    bool operator == (P a) const { return sign(a.x - x) == 0 && sign(a.y - y) == 0; }
+    bool operator != (P a) const { return !(*this == a); }
+    bool operator < (P a) const { return sign(a.x - x) == 0 ? y < a.y : x < a.x; }
+    bool operator > (P a) const { return sign(a.x - x) == 0 ? y > a.y : x > a.x; }
 };
 inline ftype cross(P a, P b) {return a.x * b.y - a.y * b.x;}
 

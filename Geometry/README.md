@@ -55,7 +55,7 @@ double proj(P a, P b) {return dot(a, b) / abs(b);}
 double angle(P a, P b) {return acos(dot(a, b) / abs(a) / abs(b));}
 P intersect(P a1, P d1, P a2, P d2) {return a1 + cross(a2 - a1, d2) / cross(d1, d2) * d1;}
 
-bool LineSegmentIntersection(P &p1, P &p2, P &p3, P &p4) {
+bool LineSegmentIntersection(P p1, P p2, P p3, P p4) {
     // Check if they are parallel
     if(cross(p1-p2, p3-p4) == 0) {
         // If they are not collinear
@@ -72,7 +72,7 @@ bool LineSegmentIntersection(P &p1, P &p2, P &p3, P &p4) {
         }
         return true;
     }
-    // Check one segment totally on the left or right side of other segmnent
+    // Check one segment totally on the left or right side of other segment
     for(int it = 0; it < 2; it++) {
         ll sign1 = cross(p2-p1, p3-p1);
         ll sign2 = cross(p2-p1, p4-p1);
@@ -92,5 +92,23 @@ ftype PolygonArea(vector<P> &Points, int n) {
         area+=cross(Points[i], Points[j]);
     }
     return abs(area);
+}
+
+string PointInPolygon(vector<P> &points, int n, P &p) {
+    int cnt = 0;
+    for(int i = 0; i < n; i++) {
+        int j = (i+1) % n;
+        if(LineSegmentIntersection(points[i], points[j], p, p)) {
+            return "BOUNDARY";
+        }
+        // Imagine a vertically infinite line from point p to positive infinity.
+        // Check if a line from the polygon is totally on the left or right side of the infinite line and makes a positive cross product or positive triangle.
+        // Here, "right" means to the right or equal.
+        if((points[i].x >= p.x && points[j].x < p.x && cross(points[i]-p, points[j]-p) > 0) ||
+           (points[i].x < p.x && points[j].x >= p.x && cross(points[j]-p, points[i]-p) > 0))
+            cnt++;
+    }
+    if(cnt & 1)return "INSIDE";
+    return "OUTSIDE";
 }
 ```
