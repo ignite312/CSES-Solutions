@@ -8,7 +8,11 @@ Resource: Competitive Programmer’s Handbook - Page 268
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
+
 using ftype = ll;
+const double eps = 1e-9;
+const double PI = acos((double)-1.0);
+int sign(double x) { return (x > eps) - (x < -eps);}
 
 struct P {
     ftype x, y;
