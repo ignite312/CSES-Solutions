@@ -85,6 +85,7 @@ bool LineSegmentIntersection(P p1, P p2, P p3, P p4) {
     return true;
 }
 
+// here return value is area*2
 ftype PolygonArea(vector<P> &Points, int n) {
     ll area = 0;
     for(int i = 0; i < n; i++) {
@@ -101,14 +102,41 @@ string PointInPolygon(vector<P> &points, int n, P &p) {
         if(LineSegmentIntersection(points[i], points[j], p, p)) {
             return "BOUNDARY";
         }
-        // Imagine a vertically infinite line from point p to positive infinity.
-        // Check if a line from the polygon is totally on the left or right side of the infinite line and makes a positive cross product or positive triangle.
-        // Here, "right" means to the right or equal.
+        /*
+        Imagine a vertically infinite line from point p to positive infinity.
+        Check if a line from the polygon is totally on the left or right side of the infinite line and makes a positive cross product or positive triangle.
+        Here, "right" means to the right or equal.
+        */
         if((points[i].x >= p.x && points[j].x < p.x && cross(points[i]-p, points[j]-p) > 0) ||
            (points[i].x < p.x && points[j].x >= p.x && cross(points[j]-p, points[i]-p) > 0))
             cnt++;
     }
     if(cnt & 1)return "INSIDE";
     return "OUTSIDE";
+}
+
+void ConvexHull(vector<P> &points, int n) {
+    vector<P> hull;
+    sort(points.begin(), points.end());
+    for(int rep = 0; rep < 2; rep++) {
+        const int h = (int)hull.size();
+        for(auto C : points) {
+            while((int)hull.size() - h >= 2) {
+                P A = hull[(int)hull.size()-2];
+                P B = hull[(int)hull.size()-1];
+                if(cross(B-A, C-A) <= 0) {
+                    break;
+                }
+                hull.pop_back();
+            }
+            hull.push_back(C);
+        }
+        hull.pop_back();
+        reverse(points.begin(), points.end());
+    }
+    cout << hull.size() << "\n";
+    for(auto p : hull) {
+        cout << p.x << " " << p.y << "\n";
+    }
 }
 ```

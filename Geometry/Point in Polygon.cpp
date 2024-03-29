@@ -83,18 +83,18 @@ bool LineSegmentIntersection(P p1, P p2, P p3, P p4) {
     return true;
 }
 
-string PointInPolygon(vector<P> &points, int n, P &p) {
+string PointInPolygon(vector<P> &polygon, int n, P &p) {
     int cnt = 0;
     for(int i = 0; i < n; i++) {
         int j = (i+1) % n;
-        if(LineSegmentIntersection(points[i], points[j], p, p)) {
+        if(LineSegmentIntersection(polygon[i], polygon[j], p, p)) {
             return "BOUNDARY";
         }
         // Imagine a vertically infinite line from point p to positive infinity.
         // Check if a line from the polygon is totally on the left or right side of the infinite line and makes a positive cross product or positive triangle.
         // Here, "right" means to the right or equal.
-        if((points[i].x >= p.x && points[j].x < p.x && cross(points[i]-p, points[j]-p) > 0) ||
-           (points[i].x < p.x && points[j].x >= p.x && cross(points[j]-p, points[i]-p) > 0))
+        if((polygon[i].x >= p.x && polygon[j].x < p.x && cross(polygon[i]-p, polygon[j]-p) > 0) ||
+           (polygon[i].x < p.x && polygon[j].x >= p.x && cross(polygon[j]-p, polygon[i]-p) > 0))
             cnt++;
     }
     if(cnt & 1)return "INSIDE";
@@ -110,16 +110,16 @@ int main() {
     while(tt--) {
          int n, m;
          cin >> n >> m;
-         vector<P> Points;
+         vector<P> polygon;
          for(int i = 0; i < n; i++) {
             P p;
             p.read();
-            Points.push_back(p);
+            polygon.push_back(p);
          }
          for(int i = 0; i < m; i++) {
             P p;
             p.read();
-            cout << PointInPolygon(Points, n, p) << "\n";
+            cout << PointInPolygon(polygon, n, p) << "\n";
          }
     }
     return 0;

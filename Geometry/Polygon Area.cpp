@@ -53,11 +53,11 @@ struct P {
 
 inline ftype cross(P a, P b) {return a.x * b.y - a.y * b.x;}
 
-ftype PolygonArea(vector<P> &Points, int n) {
+ftype PolygonArea(vector<P> &polygon, int n) {
     ll area = 0;
     for(int i = 0; i < n; i++) {
         int j = (i+1) % n;
-        area+=cross(Points[i], Points[j]);
+        area+=cross(polygon[i], polygon[j]);
     }
     return abs(area);
 }
@@ -71,13 +71,13 @@ int main() {
     while(tt--) {
          int n;
          cin >> n;
-         vector<P> Points;
+         vector<P> polygon;
          for(int i = 0; i < n; i++) {
             P p;
             p.read();
-            Points.push_back(p);
+            polygon.push_back(p);
          }
-         cout << PolygonArea(Points, n) << "\n";
+         cout << PolygonArea(polygon, n) << "\n";
     }
     return 0;
 }
