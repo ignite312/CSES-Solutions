@@ -1,5 +1,6 @@
 /*
 Idea: Lowest Common Ancestor using Binary Lifting
+Complexity: 
 Resource: https://www.youtube.com/watch?v=dOAxrhAUIhA
 */
 #include<bits/stdc++.h>

@@ -1,5 +1,8 @@
 /*
-Kth Ancestor using Binary Lifting
+Problem Name: Subordinates
+Problem Link: https://cses.fi/problemset/task/1674
+Idea: Kth Ancestor using Binary Lifting
+Complexity: 
 Resource: https://www.youtube.com/watch?v=oib-XsjFa-M
 */
 #include<bits/stdc++.h>

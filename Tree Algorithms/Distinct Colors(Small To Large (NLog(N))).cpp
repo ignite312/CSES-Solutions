@@ -1,6 +1,6 @@
 /*
 Small To Large(DSU on Tree)
-NLog(N)
+Complexity: NLog(N)
 Resource: https://github.com/ignite312/CpStuff/tree/main/Tree/Small%20to%20Large%20Merging(DSU%20on%20Tree)
 */
 #include<bits/stdc++.h>
