@@ -21,7 +21,7 @@ int main() {
         for(int i = 0; i < n; i++) {
             int x;
             cin >> x;
-            // first will give a even state for every pile to second player cause even pile is a losing state
+            // first player will gift even state for every pile to the second player because all even pile is a losing state
             if(x & 1)ans = "first";
         }
         cout << ans << "\n";
