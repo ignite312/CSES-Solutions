@@ -1,7 +1,7 @@
 /*
-Problem Name: Subarray Divisibility
-Problem Link: https://cses.fi/problemset/task/1662/
-Idea:
+Problem Name: Subarray Sums I
+Problem Link: https://cses.fi/problemset/task/1660/
+Idea: Pefix Sum
 Complexity:
 Resource:
 */
@@ -16,8 +16,8 @@ int main() {
     tt = 1;
     // cin >> tt;
     while(tt--) {
-        int n;
-        cin >> n;
+        int n, k;
+        cin >> n >> k;
         vector<ll> v(n);
         for(int i = 0; i < n; i++) {
             cin >> v[i];
@@ -27,8 +27,8 @@ int main() {
         map<ll, int> check;
         check[0] = 1;
         for(int i = 0; i < n; i++) {
-            pref_sum = ((pref_sum + v[i]%n)+n) % n;
-            ans+=check[pref_sum];
+            pref_sum+=v[i];
+            ans+=check[pref_sum-k];
             check[pref_sum]++;
         }
         cout << ans << "\n";

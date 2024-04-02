@@ -1,0 +1,3 @@
+Josephus Queries,https://cses.fi/problemset/task/2164/,Mathematics
+Problem 2,https://example.com/problem2/,Data Structures
+Problem 3,https://example.com/problem3/,Algorithms
