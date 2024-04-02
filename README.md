@@ -9,3 +9,17 @@ This repository contains my accepted (AC) solutions to problems from the [CSES p
 ## Resources
 
 For those interested in competitive programming [Competitive Programmer’s Handbook](https://cses.fi/book/book.pdf) by Antti Laaksonen. The book offers comprehensive insights and strategies for tackling algorithmic problems.
+
+
+## How to create CPP files for 300 problems in CSES for uploading on GitHub with necessary descriptions?
+- Keep ``data.txt`` and ``GenerateCPPFiles.py`` in the same directory
+- Run this command
+- Linux ``bash``
+ ```bash
+ python3 GenerateFiles.py
+ ```
+ - Mac ``zsh``
+ ```zsh
+ python3 GenerateFiles.py
+ ```
+Now create an editorial for these 300 problems and upload it on GitHub :3
