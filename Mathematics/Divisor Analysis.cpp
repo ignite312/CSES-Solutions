@@ -4,6 +4,7 @@ Problem Link: https://cses.fi/problemset/task/2182/
 Idea:
 Complexity:
 Resource: https://cp-algorithms.com/algebra/divisors.html
+Resource: https://blog.codechef.com/2009/08/17/tutorial-for-problem-product-of-divisors/
 */
 #include<bits/stdc++.h>
 using namespace std;
@@ -53,6 +54,7 @@ int main() {
                 pw = (pw * (k+1)) % (M-1);
             }
         }
+        // Product of divisors = (Num)^(d(Num)/2)
         if(!ok)prod = bigPow(num1, pw, M);
         else prod = bigPow(num2, pw, M);
         cout << cnt << " " << sum << " " << prod << "\n";
