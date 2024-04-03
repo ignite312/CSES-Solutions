@@ -1,8 +1,10 @@
 /*
-Small To Large Technique
+Problem Name: Fixed-Length Paths I
+Problem Link: https://cses.fi/problemset/task/2080
+Idea: Small To Large Technique
 Complexity: 
-Here, "Suffix_u[i]" means the total number of paths whose length is i and starts from vertex u to all of its descendants
 Resource: https://github.com/ignite312/CpStuff/tree/main/Tree/Small%20to%20Large%20Merging(DSU%20on%20Tree)
+Here, "Suffix_u[i]" means the total number of paths whose length is i and starts from vertex u to all of its descendants
 */
 #include<bits/stdc++.h>
 using namespace std;

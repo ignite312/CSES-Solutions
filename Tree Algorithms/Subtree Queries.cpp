@@ -1,7 +1,9 @@
 /*
-Flattening Tree Using Segment Tree
+Problem Name: Subtree Queries
+Problem Link: https://cses.fi/problemset/task/1137
+Idea: Flattening Tree Using Segment Tree
 Complexity: 
-Segment tree Resource: https://github.com/ignite312/CpStuff/tree/main/SegmentTree
+Resource: https://github.com/ignite312/CpStuff/tree/main/SegmentTree
 */
 #include<bits/stdc++.h>
 using namespace std;

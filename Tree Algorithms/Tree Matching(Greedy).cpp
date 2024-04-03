@@ -1,8 +1,10 @@
 /*
-Greedy method are used here
-Can be solved using Hopcroft–Karp algorithm
-https://en.wikipedia.org/wiki/Hopcroft–Karp_algorithm
-implementation: https://zobayer.blogspot.com/2010/05/maximum-matching.html
+Problem Name: Tree Matching
+Problem Link: https://cses.fi/problemset/task/1130
+Idea: Greedy, But Can be solved using Hopcroft–Karp algorithm
+Complexity: 
+Resource: https://en.wikipedia.org/wiki/Hopcroft–Karp_algorithm
+Resource: https://zobayer.blogspot.com/2010/05/maximum-matching.html
 */
 
 #include<bits/stdc++.h>

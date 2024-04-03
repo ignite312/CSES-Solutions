@@ -1,8 +1,11 @@
 /*
+Problem Name: Tree Diameter
+Problem Link: https://cses.fi/problemset/task/1131
+Idea: 
 Complexity: 
-https://codeforces.com/contest/1881/problem/F
+Resource:
+Similar Problem: https://codeforces.com/contest/1881/problem/F
 */
-
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 2e5+1;

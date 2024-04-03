@@ -1,5 +1,7 @@
 /*
-Lowest Common Ancestor using Binary Lifting
+Problem Name: Company Queries II
+Problem Link: https://cses.fi/problemset/task/1688
+Idea: Lowest Common Ancestor using Binary Lifting
 Complexity: 
 Resource: https://www.youtube.com/watch?v=dOAxrhAUIhA
 More Problem: https://www.spoj.com/problems/LCASQ/

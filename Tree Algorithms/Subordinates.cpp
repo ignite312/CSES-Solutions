@@ -1,6 +1,9 @@
 /*
+Problem Name: Subordinates
+Problem Link: https://cses.fi/problemset/task/1674
 Idea: Subtree
 Complexity: 
+Resource: 
 Related Problem : https://codeforces.com/contest/1946/problem/C
 */
 

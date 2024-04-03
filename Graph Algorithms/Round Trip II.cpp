@@ -1,9 +1,10 @@
 /*
 Problem Name: Round Trip II
 Problem Link: https://cses.fi/problemset/task/1678/
-Idea:
+Idea: Cycle Finding Directed
 Complexity:
 Resource:
+Similar Problem: https://codeforces.com/contest/1931/problem/F
 */
 #include<bits/stdc++.h>
 using namespace std;

@@ -1,6 +1,9 @@
 /*
-Subtree
+Problem Name: Finding a Centroid
+Problem Link: https://cses.fi/problemset/task/2079
+Idea: Subtree
 Complexity: 
+Resource: 
 */
 #include<bits/stdc++.h>
 using namespace std;

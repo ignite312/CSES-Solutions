@@ -1,7 +1,9 @@
 /*
-Dynamic Programming Approach
-https://usaco.guide/gold/dp-trees?lang=cpp
-https://youtu.be/YbFcHmpM60k?t=3930
+Problem Name: Tree Matching
+Problem Link: https://cses.fi/problemset/task/1130
+Idea: Dynamic Programming
+Complexity:
+Resource: https://usaco.guide/gold/dp-trees?lang=cpp, https://youtu.be/YbFcHmpM60k?t=3930
 */
 
 #include<bits/stdc++.h>

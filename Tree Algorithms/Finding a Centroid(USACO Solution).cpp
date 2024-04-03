@@ -1,6 +1,9 @@
 /*
+Problem Name: Finding a Centroid
+Problem Link: https://cses.fi/problemset/task/2079
+Idea: 
 Complexity: 
-https://usaco.guide/plat/centroid?lang=cpp
+Resource: https://usaco.guide/plat/centroid?lang=cpp
 */
 #include<bits/stdc++.h>
 using namespace std;

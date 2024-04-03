@@ -1,6 +1,9 @@
 /*
-MO’s Algorithm
+Problem Name: Distinct Colors
+Problem Link: https://cses.fi/problemset/task/1139
+Idea: MO’s Algorithm
 Complexity: 
+Resource:
 */
 #include<bits/stdc++.h>
 using namespace std;

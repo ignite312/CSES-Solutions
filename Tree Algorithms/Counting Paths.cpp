@@ -1,4 +1,6 @@
 /*
+Problem Name: Counting Paths
+Problem Link: https://cses.fi/problemset/task/1136
 Idea: Lowest Common Ancestor using Binary Lifting + Prefix
 Complexity: 
 Resource: https://www.youtube.com/watch?v=dOAxrhAUIhA

@@ -1,5 +1,7 @@
 /*
-Small To Large(DSU on Tree)
+Problem Name: Distinct Colors
+Problem Link: https://cses.fi/problemset/task/1139
+Idea: Small To Large(DSU on Tree)
 Complexity: NLog^2(N)
 Resource: https://github.com/ignite312/CpStuff/tree/main/Tree/Small%20to%20Large%20Merging(DSU%20on%20Tree)
 */
