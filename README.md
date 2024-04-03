@@ -13,6 +13,7 @@ For those interested in competitive programming [Competitive Programmer’s Hand
 
 ## How to create CPP files for 300 problems in CSES for uploading on GitHub with necessary descriptions?
 - Keep ``data.txt`` and ``GenerateCPPFiles.py`` in the same directory
+- Modify the ``Author`` name in ``GenerateCPPFiles.py``
 - Run this command
 - Linux ``bash``
  ```bash
