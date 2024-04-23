@@ -1,7 +1,7 @@
 /*
 Problem Name: Coin Collector
 Problem Link: https://cses.fi/problemset/task/1686/
-Idea: Strongly Connected Componenet
+Idea: Strongly Connected Component
 Complexity:
 Resource: https://usaco.guide/problems/cses-1686-coin-collector/solution
 */
