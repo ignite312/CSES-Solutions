@@ -61,7 +61,6 @@ int main() {
         for(int i = 0; i < N; i++) {
             visited[i][8] = visited[8][i] = visited[0][i] = visited[i][0] = true;
         }
-        
         cout << calculate(0, 1, 1);
     }
     return 0;
