@@ -3,9 +3,17 @@
 This repository contains my accepted (AC) solutions to problems from the [CSES problem set](https://cses.fi/problemset/).
 
 ## Table of Content
-- [Complete Dynamic Programming](https://github.com/ignite312/CSES-Solutions/tree/main/Dynamic%20Programming)
-- [Complete Tree Algorithms](https://github.com/ignite312/CSES-Solutions/tree/main/Tree%20Algorithms)
-- [Complete Range Queries](https://github.com/ignite312/CSES-Solutions/tree/main/Range%20Queries)
+- [Introductory Problems](https://github.com/ignite312/CSES-Solutions/tree/main/Introductory%20Problems)
+- [Sorting and Searching](https://github.com/ignite312/CSES-Solutions/tree/main/Sorting%20and%20Searching)
+- [Dynamic Programming](https://github.com/ignite312/CSES-Solutions/tree/main/Dynamic%20Programming)
+- [Graph Algorithms](https://github.com/ignite312/CSES-Solutions/tree/main/Graph%20Algorithms)
+- [Range Queries](https://github.com/ignite312/CSES-Solutions/tree/main/Range%20Queries)
+- [Tree Algorithms](https://github.com/ignite312/CSES-Solutions/tree/main/Tree%20Algorithms)
+- [Mathematics](https://github.com/ignite312/CSES-Solutions/tree/main/Mathematics)
+- [String Algorithms](https://github.com/ignite312/CSES-Solutions/tree/main/String%20Algorithms)
+- [Geometry](https://github.com/ignite312/CSES-Solutions/tree/main/Geometry)
+- Advanced Techniques
+- Additional Problems
 ## Resources
 
 For those interested in competitive programming [Competitive Programmer’s Handbook](https://cses.fi/book/book.pdf) by Antti Laaksonen. The book offers comprehensive insights and strategies for tackling algorithmic problems.
@@ -15,12 +23,8 @@ For those interested in competitive programming [Competitive Programmer’s Hand
 - Keep ``data.txt`` and ``GenerateCPPFiles.py`` in the same directory
 - Modify the ``Author`` name in ``GenerateCPPFiles.py``
 - Run this command
-- Linux ``bash``
+- Linux ``bash`` or Mac ``zsh``
  ```bash
- python3 GenerateFiles.py
- ```
- - Mac ``zsh``
- ```zsh
  python3 GenerateFiles.py
  ```
 Now create an editorial for these 300 problems and upload it on GitHub :3
