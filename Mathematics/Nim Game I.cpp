@@ -5,6 +5,9 @@ Idea:
 Complexity:
 Resource: https://youtu.be/2GoUYpQlAUY
 Another Problem: https://lightoj.com/problem/misere-nim
+More Problem: https://atcoder.jp/contests/abc368/submissions/57104601
+More Problem: https://codeforces.com/contest/2004/submission/277966030
+More Problem: https://codeforces.com/contest/1823/submission/204362145
 */
 #include<bits/stdc++.h>
 using namespace std;
