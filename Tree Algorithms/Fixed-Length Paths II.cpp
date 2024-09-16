@@ -10,7 +10,7 @@ Here, "suffix_u[i]" means the total number of paths whose length between i and i
 using namespace std;
 #define ll long long
 const int N = 2e5 + 1;
-vector<int> adj[N+1];
+vector<int> adj[N];
 int n, k1, k2;
 ll ans;
  
@@ -53,4 +53,5 @@ int main() {
         f(1, -1);
         cout << ans << '\n';
     }
+    return 0;
 }

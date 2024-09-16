@@ -9,10 +9,10 @@ Resource:
 using namespace std;
 #define ll long long
 const int N = 2e5 + 1;
-vector<int> adj[N+1];
+vector<int> adj[N];
 int n, k;
-int subtree[N+1], cnt[N+1], mx_depth;
-bool visited[N+1];
+int subtree[N], cnt[N], mx_depth;
+bool visited[N];
 ll ans;
  
 int getSubtree(int u, int p) {

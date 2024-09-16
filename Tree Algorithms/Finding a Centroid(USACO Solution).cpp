@@ -8,19 +8,20 @@ Resource: https://usaco.guide/plat/centroid?lang=cpp
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 2e5 + 1;
-vector<int> adj[N+1];
-int subtree[N+1], n;
+vector<int> adj[N];
+int subtree[N], n;
  
 void dfs(int u, int p) {
+    subtree[u] = 1;
     for(auto v : adj[u]) {
         if(v == p)continue;
         dfs(v, u);
-        subtree[u] += subtree[v] + 1;
+        subtree[u] += subtree[v];
     }
 }
 int getCentroid(int u, int p, int desired) {
     for(auto v : adj[u])
-        if(v != p && subtree[v] + 1 > desired)
+        if(v != p && subtree[v] > desired)
             return getCentroid(v, u, desired);
     return u;
 }

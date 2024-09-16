@@ -8,8 +8,8 @@ Resource:
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 2e5 + 1;
-vector<int> adj[N+1];
-int subtree[N+1], n;
+vector<int> adj[N];
+int subtree[N], n;
 int ans = -1;
  
 void dfs(int u, int p) {
