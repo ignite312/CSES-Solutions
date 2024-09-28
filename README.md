@@ -1,7 +1,9 @@
 ## CSES Problem Set Solutions
 
 This repository contains my accepted (AC) solutions to problems from the [CSES problem set](https://cses.fi/problemset/).
-- ![CSES_Submissions](https://raw.githubusercontent.com/ignite312/CSES-Solutions/main/CSES_Submissions.png)
+
+<img src="https://raw.githubusercontent.com/ignite312/CSES-Solutions/main/CSES_Submissions.png" alt="My Image" width="200">
+
 ## Table of Content
 - [Introductory Problems](https://github.com/ignite312/CSES-Solutions/tree/main/Introductory%20Problems)
 - [Sorting and Searching](https://github.com/ignite312/CSES-Solutions/tree/main/Sorting%20and%20Searching)
