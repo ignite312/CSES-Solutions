@@ -2,28 +2,27 @@
 
 This repository contains my accepted (AC) solutions to problems from the [CSES problem set](https://cses.fi/problemset/).
 
-<table>
-  <tr>
-    <td>
-      <img src="https://raw.githubusercontent.com/ignite312/CSES-Solutions/main/CSES_Submissions.png" alt="My Image" width="200">
-    </td>
-    <td>
-
-## Table of Content
-- [Introductory Problems](https://github.com/ignite312/CSES-Solutions/tree/main/Introductory%20Problems)
-- [Sorting and Searching](https://github.com/ignite312/CSES-Solutions/tree/main/Sorting%20and%20Searching)
-- [Dynamic Programming](https://github.com/ignite312/CSES-Solutions/tree/main/Dynamic%20Programming)
-- [Graph Algorithms](https://github.com/ignite312/CSES-Solutions/tree/main/Graph%20Algorithms)
-- [Range Queries](https://github.com/ignite312/CSES-Solutions/tree/main/Range%20Queries)
-- [Tree Algorithms](https://github.com/ignite312/CSES-Solutions/tree/main/Tree%20Algorithms)
-- [Mathematics](https://github.com/ignite312/CSES-Solutions/tree/main/Mathematics)
-- [String Algorithms](https://github.com/ignite312/CSES-Solutions/tree/main/String%20Algorithms)
-- [Geometry](https://github.com/ignite312/CSES-Solutions/tree/main/Geometry)
-- Advanced Techniques
-- Additional Problems
-    </td>
-  </tr>
-</table>
+<div style="display: flex; align-items: flex-start;">
+    <div style="margin-right: 20px;">
+        <h2>Table of Content</h2>
+        <ul>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/Introductory%20Problems">Introductory Problems</a></li>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/Sorting%20and%20Searching">Sorting and Searching</a></li>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/Dynamic%20Programming">Dynamic Programming</a></li>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/Graph%20Algorithms">Graph Algorithms</a></li>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/Range%20Queries">Range Queries</a></li>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/Tree%20Algorithms">Tree Algorithms</a></li>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/Mathematics">Mathematics</a></li>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/String%20Algorithms">String Algorithms</a></li>
+            <li><a href="https://github.com/ignite312/CSES-Solutions/tree/main/Geometry">Geometry</a></li>
+            <li>Advanced Techniques</li>
+            <li>Additional Problems</li>
+        </ul>
+    </div>
+    <div>
+        <img src="https://raw.githubusercontent.com/ignite312/CSES-Solutions/main/CSES_Submissions.png" alt="My Image" width="200">
+    </div>
+</div>
 
 ## Resources
 
