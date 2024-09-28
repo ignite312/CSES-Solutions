@@ -2,7 +2,12 @@
 
 This repository contains my accepted (AC) solutions to problems from the [CSES problem set](https://cses.fi/problemset/).
 
-<img src="https://raw.githubusercontent.com/ignite312/CSES-Solutions/main/CSES_Submissions.png" alt="My Image" width="200">
+<table>
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/ignite312/CSES-Solutions/main/CSES_Submissions.png" alt="My Image" width="200">
+    </td>
+    <td>
 
 ## Table of Content
 - [Introductory Problems](https://github.com/ignite312/CSES-Solutions/tree/main/Introductory%20Problems)
@@ -16,6 +21,10 @@ This repository contains my accepted (AC) solutions to problems from the [CSES p
 - [Geometry](https://github.com/ignite312/CSES-Solutions/tree/main/Geometry)
 - Advanced Techniques
 - Additional Problems
+    </td>
+  </tr>
+</table>
+
 ## Resources
 
 For those interested in competitive programming [Competitive Programmer’s Handbook](https://cses.fi/book/book.pdf) by Antti Laaksonen. The book offers comprehensive insights and strategies for tackling algorithmic problems.
