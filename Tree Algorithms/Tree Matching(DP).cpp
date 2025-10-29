@@ -13,11 +13,14 @@ vector<int> adj[N+1];
 int dp[N+1][2];
  
 void dfs(int u, int p) {
+
+    // dp[u][0] u is not matched with any of its child
     for(auto v : adj[u]) {
         if(v == p)continue;
         dfs(v, u);
         dp[u][0] += max(dp[v][0], dp[v][1]);
     }
+    // dp[u][1] = u is matched with one of its child
     for(auto v : adj[u]) {
         if(v == p)continue;
         dp[u][1] = max(dp[u][1], dp[v][0] + 1 + dp[u][0] -
