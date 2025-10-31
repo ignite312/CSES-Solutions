@@ -8,128 +8,126 @@ Resource: https://usaco.guide/plat/hld?lang=cpp
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long
-const int N = 2e5 + 1;
-vector<int> adj[N+1];
-ll prefix[N+1], values[N+1];
-int st[N+1], en[N+1];
-int Time = 0;
+const int N = 200001;
+vector<int> adj[N];
+ll values[N];
+int st[N], en[N];
+int _time = -1;
 
 struct Segtree {
-    int n;
-    vector<ll> tree, lazy;
- 
-    ll merge(ll x, ll y) {
-        return x + y;
+  // 0-based array indexing
+  int n;
+  vector<ll> tree, lazy;
+  Segtree(int n) {
+    this->n = n;
+    tree.assign(4 * n, 0);
+    lazy.assign(4 * n, 0);
+  }
+  void build(vector<ll> &a, int idx, int l, int r) {
+    if (l == r) {
+      tree[idx] = a[l];
+      return;
     }
-    void push(int node, int l, int r) {
-        int a = node*2+1, b = node*2+2;
-        int mid = l + (r-l)/2;
-        tree[a]+=(mid-l+1)*lazy[node], tree[b]+=(r-(mid+1)+1)*lazy[node];
-        lazy[a]+=lazy[node], lazy[b]+=lazy[node];
-        lazy[node] = 0;
+    int mid = (l + r) / 2;
+    build(a, idx * 2, l, mid);
+    build(a, idx * 2 + 1, mid + 1, r);
+    tree[idx] = tree[idx * 2] + tree[idx * 2 + 1];
+  }
+  void build(vector<ll> &a) {
+    build(a, 1, 0, n - 1);
+  }
+  void push(int idx, int l, int r) {
+    if (lazy[idx] == 0) return;
+    int mid = (l + r) / 2;
+    int left = idx * 2, right = idx * 2 + 1;
+
+    tree[left] += (mid - l + 1) * lazy[idx];
+    tree[right] += (r - mid) * lazy[idx];
+
+    lazy[left] += lazy[idx];
+    lazy[right] += lazy[idx];
+    lazy[idx] = 0;
+  }
+  void update(int idx, int l, int r, int ql, int qr, ll val) {
+    if (l > qr || r < ql) return;
+    if (ql <= l && r <= qr) {
+      tree[idx] += (r - l + 1) * val;
+      lazy[idx] += val;
+      return;
     }
-    void build(vector<ll> &a, int node, int l, int r) {
-        if(l == r) {
-            tree[node] = a[l];
-            return;
-        }
-        int mid = l + (r - l)/2;
-        build(a, node*2+1, l, mid);
-        build(a, node*2+2, mid+1, r);
-        tree[node] = merge(tree[node*2+1], tree[node*2+2]);
-    }
-    void build(vector<ll> &a) {
-        build(a, 0, 0, n-1);
-    }
-    void update(int i, int j, ll value, int node, int l, int r) {
-        if(l > j || r < i)return;
-        if(l >= i && r <= j) {
-            lazy[node]+=value;
-            tree[node]+=(r-l+1)*value;
-            return;
-        }
-        if(lazy[node])push(node, l, r);
-        int mid = l + (r-l)/2;
-        update(i, j, value, node*2+1, l, mid);
-        update(i, j, value, node*2+2, mid+1, r);
-        tree[node] = merge(tree[node*2+1], tree[node*2+2]);
-    }
-    void update(int i, int j, ll value) {
-        update(i, j, value, 0, 0, n-1);
-    }
-    ll query(int i, int j, int node, int l, int r) {
-        if(l > j || r < i)
-            return 0;
-        if(l >= i && r <= j)
-            return tree[node];
- 
-        if(lazy[node]) push(node, l, r);
-        int mid = l + (r - l)/2;
-        return merge(query(i, j, node*2+1, l, mid), query(i, j, node*2+2, mid+1, r));
-    }
-    ll query(int i, int j) {
-        return query(i, j, 0, 0, n-1);
-    }
-    int sz(int n) {
-        int size = 1;
-        while(size < n) size = size << 1;
-        return 2*size-1;
-    }
-    void init(vector<ll> &a) {
-        n = a.size();
-        int _sz = sz(n);
-        tree.resize(_sz);
-        lazy.assign(_sz, 0);
-        build(a, 0, 0, n-1);
-    }
-} St;
-void dfs(int u, int p) {
-    st[u] = ++Time;
-    for(auto v : adj[u]) {
-        if(v == p)continue;
-        prefix[v]+=prefix[u];
-        dfs(v, u);
-    }
-    en[u] = Time;
+    if (lazy[idx]) push(idx, l, r);
+    int mid = (l + r) / 2;
+    update(idx * 2, l, mid, ql, qr, val);
+    update(idx * 2 + 1, mid + 1, r, ql, qr, val);
+    tree[idx] = tree[idx * 2] + tree[idx * 2 + 1];
+  }
+  void update(int l, int r, ll val) {
+    update(1, 0, n - 1, l, r, val);
+  }
+  ll query(int idx, int l, int r, int ql, int qr) {
+    if (l > qr || r < ql) return 0;
+    if (ql <= l && r <= qr) return tree[idx];
+    if (lazy[idx]) push(idx, l, r);
+    int mid = (l + r) / 2;
+    return query(idx * 2, l, mid, ql, qr) +
+    query(idx * 2 + 1, mid + 1, r, ql, qr);
+  }
+  ll query(int l, int r) {
+    return query(1, 0, n - 1, l, r);
+  }
+};
+
+void dfs(int u, int p, vector<ll> &pfx) {
+  st[u] = ++_time;
+  for(auto v : adj[u]) {
+    if(v == p) continue;
+    pfx[v] += pfx[u];
+    dfs(v, u, pfx);
+  }
+  en[u] = _time;
 }
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int tt;
-    tt = 1;
-    // cin >> tt;
-    while(tt--) {
-        int n, q;
-        cin >> n >> q;
-        for(int i = 1; i <= n; i++) {
-            cin >> prefix[i];
-            values[i] = prefix[i];
-        }
-        for(int i = 0; i < n-1; i++) {
-            int u, v;
-            cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-        }
-        dfs(1, -1);
-        vector<ll> v(Time);
-        for(int i = 1; i <= n; i++)v[st[i]-1] = prefix[i];
-        St.init(v);
-        while(q--) {
-            int type;
-            cin >> type;
-            if(type == 1) {
-                int s;
-                ll x;
-                cin >> s >> x;
-                St.update(st[s]-1, en[s]-1, x - values[s]);
-                values[s] = x;
-            }else {
-                int s;
-                cin >> s;
-                cout << St.query(st[s]-1, st[s]-1) << "\n";
-            }
-        }
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tt;
+  tt = 1;
+  // cin >> tt;
+  while(tt--) {
+    int n, q;
+    cin >> n >> q;
+    for(int i = 1; i <= n; i++) cin >> values[i];
+    for(int i = 0; i < n - 1; i++) {
+      int u, v;
+      cin >> u >> v;
+      adj[u].push_back(v);
+      adj[v].push_back(u);
     }
-    return 0;
+    vector<ll> pfx(n+1, 0);
+    for(int i = 1; i <= n; i++) {
+        pfx[i] = values[i];
+    }
+    dfs(1, -1, pfx);
+    vector<ll> a(n);
+    for(int i = 1; i <= n; i++) {
+      a[st[i]] = pfx[i];
+    }
+    Segtree sgt(n);
+    sgt.build(a);
+    while(q--) {
+      int type;
+      cin >> type;
+      if(type == 1) {
+        int s;
+        ll x;
+        cin >> s >> x;
+        sgt.update(st[s], en[s], x - values[s]);
+        values[s] = x;
+      } else {
+        int s;
+        cin >> s;
+        cout << sgt.query(st[s], st[s]) << "\n";
+      }
+    }
+  }
+  return 0;
 }

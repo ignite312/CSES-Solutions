@@ -5,66 +5,88 @@ Idea: Heavy Light Decomposition
 Complexity: O(Nlog^2N)
 Resource:
 */
+/*
+Heavy Light Decomposition
+Complexity : O(Nlog^2N)
+*/
 #include<bits/stdc++.h>
 using namespace std;
-const int N = 2e5 + 1;
-int values[N+1], subtree[N+1], parent[N+1], depth[N+1];
-int heavy[N+1], head[N+1], id[N+1];
-vector<int> adj[N+1];
+const int N = 200001;
+int values[N], subtree[N], parent[N], depth[N];
+int heavy[N], head[N], id[N];
+vector<int> adj[N];
  
-// 0 Base indexing
 struct Segtree {
-    int size;
-    vector<int> tree;
-
-    int merge(int x, int y) {
-        return max(x, y);
+  // 0-based array indexing
+  int n;
+  vector<int> tree;
+  Segtree(int n) {
+    this->n = n;
+    tree.assign(4 * n, 0);
+  }
+  void build(vector<int> &a, int idx, int l, int r) {
+    if (l == r) {
+      tree[idx] = a[l];
+      return;
     }
-    void build(vector<int> &a, int node, int l, int r) {
-        if(l == r) {
-            tree[node] = a[l];
-            return;
+    int mid = (l + r) / 2;
+    build(a, idx * 2, l, mid);
+    build(a, idx * 2 + 1, mid + 1, r);
+    tree[idx] = max(tree[idx * 2], tree[idx * 2 + 1]);
+  }
+  void build(vector<int> &a) {
+    build(a, 1, 0, n - 1);
+  }
+  void update(int idx, int l, int r, int pos, int val) {
+    if (l == r) {
+      tree[idx] = val;
+      return;
+    }
+    int mid = (l + r) / 2;
+    if (pos <= mid) update(idx * 2, l, mid, pos, val);
+    else update(idx * 2 + 1, mid + 1, r, pos, val);
+    tree[idx] = max(tree[idx * 2], tree[idx * 2 + 1]);
+  }
+  void update(int pos, int val) {
+    update(1, 0, n - 1, pos, val);
+  }
+  int query(int idx, int l, int r, int ql, int qr) {
+    if (l > qr || r < ql) return INT_MIN;
+    if (ql <= l && r <= qr) return tree[idx];
+    int mid = (l + r) / 2;
+    return max(query(idx * 2, l, mid, ql, qr),
+           query(idx * 2 + 1, mid + 1, r, ql, qr));
+  }
+  int query(int l, int r) {
+    return query(1, 0, n - 1, l, r);
+  }
+};
+/*
+struct Segtree {
+    0-base indexing
+    int n;
+    vector<int> t;
+    Segtree(int n = 0) : n(n), t(4*n, 0) {}
+    int merge(int x, int y) { return max(x, y); } // fn
+    void build(vector<int> &a) {
+        for (int i = 0; i < n; i++) t[n + i] = a[i];
+        for (int i = n - 1; i > 0; i--) 
+            t[i] = merge(t[i << 1], t[i << 1 | 1]);
+    }
+    void update(int p, int val) {
+        for (t[p += n] = val; p > 1; p >>= 1) // increment or set
+            t[p >> 1] = merge(t[p], t[p ^ 1]);
+    }
+    int query(int l, int r) {
+        int res = INT_MIN; // identity
+        for (l += n, r += n; l <= r; l >>= 1, r >>= 1) {
+            if (l & 1) res = merge(res, t[l++]);
+            if (!(r & 1)) res = merge(res, t[r--]);
         }
-        int mid = l + (r - l)/2;
-        build(a, node*2+1, l, mid);
-        build(a, node*2+2, mid+1, r);
-        tree[node] = merge(tree[node*2+1], tree[node*2+2]);
+        return res;
     }
-    void update(int i, int value, int node, int l, int r) {
-        if(l == i && r == i) {
-            tree[node] = value;
-            return;
-        }
-        int mid = l + (r-l)/2;
-        if(i <= mid)update(i, value, node*2+1, l, mid);
-        else update(i, value, node*2+2, mid+1, r);
-        tree[node] = merge(tree[node*2+1], tree[node*2+2]);
-    }
-    void update(int i, int value) {
-        update(i, value, 0, 0, size-1);
-    }
-    int query(int i, int j, int node, int l, int r) {
-        if(l > j || r < i) return INT_MIN;
-        if(l >= i && r <= j)return tree[node];
-        int mid = l + (r - l)/2;
-        return merge(query(i, j, node*2+1, l, mid), query(i, j, node*2+2, mid+1, r));
-    }
-    int query(int i, int j) {
-        return query(i, j, 0, 0, size-1);
-    }
-    int sz(int n) {
-        int size = 1;
-        while(size < n) size = size << 1;
-        return 2*size-1;
-    }
-    void init(vector<int> &a, int n) {
-        size = 1;
-        while(size < n) size = size << 1;
-        tree.resize(2*size-1);
-        build(a, 0, 0, size-1);
-    }
-} st;
- 
+};
+*/
 void dfs(int u, int p) {
   subtree[u] = 1;
   int mx = 0;
@@ -73,7 +95,7 @@ void dfs(int u, int p) {
     parent[v] = u;
     depth[v] = depth[u]+1;
     dfs(v, u);
-    subtree[v]+=subtree[u];
+    subtree[u]+=subtree[v];
     if(subtree[v] > mx) {
       mx = subtree[v];
       heavy[u] = v;
@@ -91,7 +113,7 @@ void HLD(int u, int h) {
     }
   }
 }
-int path(int x, int y) {
+int path(int x, int y, Segtree &st) {
   int ans = 0;
   while(head[x] != head[y]) {
     if(depth[head[x]] > depth[head[y]]) swap(x, y);
@@ -122,7 +144,8 @@ int main() {
         HLD(1, 1);
         vector<int> a(n);
         for(int i = 0; i < n; i++)a[id[i+1]] = values[i];
-        st.init(a, n);
+        Segtree st(n);
+        st.build(a);
         while(q--) {
           int type;
           cin >> type;
@@ -133,7 +156,7 @@ int main() {
           }else {
             int a, b;
             cin >> a >> b;
-            cout << path(a, b) << " ";
+            cout << path(a, b, st) << " ";
           }
         }
     }
