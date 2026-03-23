@@ -5,10 +5,6 @@ Idea: Heavy Light Decomposition
 Complexity: O(Nlog^2N)
 Resource:
 */
-/*
-Heavy Light Decomposition
-Complexity : O(Nlog^2N)
-*/
 #include<bits/stdc++.h>
 using namespace std;
 const int N = 200001;
